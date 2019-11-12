@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +30,16 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.item1) {
+        if (id == R.id.itemRegisAlabanzas) {
             Intent intent = new Intent(this, RegistrarAlabanzas.class);
+            startActivity(intent);
+            return true;
+        }if (id == R.id.itemRegisCorosAdo) {
+            Intent intent = new Intent(this, RegistrarCorosAdoracion.class);
+            startActivity(intent);
+            return true;
+        }if (id == R.id.itemRegisCorosAlegres) {
+            Intent intent = new Intent(this, RegistrarCorosAlegres.class);
             startActivity(intent);
             return true;
         }

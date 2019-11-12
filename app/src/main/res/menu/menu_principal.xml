@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/item1"
-        android:title="Item" />
+        android:id="@+id/itemRegisAlabanzas"
+        android:title="Registrar Alabanzas" />
+    <item
+        android:id="@+id/itemRegisCorosAlegres"
+        android:title="Registrar Coros Alegres" />
+    <item
+        android:id="@+id/itemRegisCorosAdo"
+        android:title="Registrar Coros de Adoración" />
 </menu>
