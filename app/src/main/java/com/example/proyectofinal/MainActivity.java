@@ -48,4 +48,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Coros.class);
         startActivity(intent);
     }
+
+    public void alabanzas (View view){
+        Intent intent = new Intent(this, Alabanzas.class);
+        startActivity(intent);
+    }
 }

@@ -24,13 +24,13 @@
         android:id="@+id/btnAlabanzas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alabanzas"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         android:layout_marginTop="25dp"
+        android:layout_marginRight="40dp"
         android:background="#E040FB"
+        android:onClick="alabanzas"
+        android:text="Alabanzas"
         android:textColor="#FFF"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
 </LinearLayout>
