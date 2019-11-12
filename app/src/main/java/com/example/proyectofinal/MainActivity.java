@@ -34,12 +34,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegistrarAlabanzas.class);
             startActivity(intent);
             return true;
-        }if (id == R.id.itemRegisCorosAdo) {
-            Intent intent = new Intent(this, RegistrarCorosAdoracion.class);
-            startActivity(intent);
-            return true;
-        }if (id == R.id.itemRegisCorosAlegres) {
-            Intent intent = new Intent(this, RegistrarCorosAlegres.class);
+        }if (id == R.id.itemRegisCoros) {
+            Intent intent = new Intent(this, RegistrarCoros.class);
             startActivity(intent);
             return true;
         }

@@ -4,9 +4,6 @@
         android:id="@+id/itemRegisAlabanzas"
         android:title="Registrar Alabanzas" />
     <item
-        android:id="@+id/itemRegisCorosAlegres"
+        android:id="@+id/itemRegisCoros"
         android:title="Registrar Coros Alegres" />
-    <item
-        android:id="@+id/itemRegisCorosAdo"
-        android:title="Registrar Coros de Adoración" />
-</menu>
+    </menu>
