@@ -3,13 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".RegistrarAlabanzas">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textAlignment="center"
         android:text="Registrar alabanzas"
         />
+
+    <EditText
+        android:id="@+id/etNombreAlabanza"
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la alabanza"
+        />
+
+    <EditText
+        android:id="@+id/etAutorAlabanza"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del autor"
+        />
+
+    <EditText
+        android:id="@+id/etLetraAlabanza"
+        android:layout_width="match_parent"
+        android:background="#ECEFF1"
+        android:textAlignment="center"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Letra"
+        />
+
+    <Button
+        android:id="@+id/btnGuardarAlabanzas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="#E040FB"
+        android:text="Coros"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
 
 </LinearLayout>
