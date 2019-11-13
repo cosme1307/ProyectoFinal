@@ -29,6 +29,10 @@ public class RegistrarCoros extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        final String titulo = etnombre.getText().toString();
+        final String autor = etautor.getText().toString();
+        final String letra = etletra.getText().toString();
+
 
     }
 }
