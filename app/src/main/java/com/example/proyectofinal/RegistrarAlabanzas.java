@@ -29,9 +29,7 @@ public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClic
         etnombre = findViewById(R.id.etNombreAlabanza);
         etautor = findViewById(R.id.etAutorAlabanza);
         etletra = findViewById(R.id.etLetraAlabanza);
-
         btnR = findViewById(R.id.btnGuardarAlabanzas);
-
         btnR.setOnClickListener(this);
     }
 
@@ -40,7 +38,6 @@ public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClic
         final String titulo = etnombre.getText().toString();
         final String autor = etautor.getText().toString();
         final String letra = etletra.getText().toString();
-
 
         if (etnombre.getText().toString().length() == 0){
             etnombre.setError("Campo Obligatorio");
