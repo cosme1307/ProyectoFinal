@@ -52,11 +52,12 @@
         android:id="@+id/btnGuardarAlabanzas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
         android:background="#E040FB"
-        android:text="Coros"
+        android:onClick="onClick"
+        android:text="Guardar"
         android:textColor="#FFF"
         android:textStyle="bold" />
 
