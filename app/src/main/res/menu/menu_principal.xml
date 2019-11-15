@@ -5,5 +5,5 @@
         android:title="Registrar Alabanzas" />
     <item
         android:id="@+id/itemRegisCoros"
-        android:title="Registrar Coros Alegres" />
+        android:title="Registrar Coros" />
     </menu>
