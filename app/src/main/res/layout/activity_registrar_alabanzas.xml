@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25dp"
+        android:textColor="#000"
         android:textAlignment="center"
         android:text="Registrar alabanzas"
         />
@@ -56,6 +57,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
         android:onClick="onClick"
+        android:background="#FF7E54"
         android:text="Guardar"
         android:textColor="#FFF"
         android:textStyle="bold" />
