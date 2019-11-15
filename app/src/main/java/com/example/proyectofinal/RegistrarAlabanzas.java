@@ -63,12 +63,14 @@ public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClic
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean success = jsonResponse.getBoolean("success");
 
+                        //Si las condiciones se cumplen entonces guarda el registro y lanza un Toast
                         if (success ){
                             Toast.makeText(RegistrarAlabanzas.this, "Registro realizado exitosamente", Toast.LENGTH_SHORT).show();
                             etnombre.setText(null);
                             etautor.setText(null);
                             etletra.setText(null);
                         }else {
+                            //Sino se cumplen las condiciones lanza un error que no se pudo guardar
                             AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarAlabanzas.this);
                             builder.setMessage("Error al registrar")
                                     .setNegativeButton("Retry", null)

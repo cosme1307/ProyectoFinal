@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 public class RegistrarCoros extends AppCompatActivity implements View.OnClickListener {
 
+    //Se declaran las variales que se vas a usar
     EditText etnombre, etautor, etletra;
     Button btnR;
 
@@ -26,21 +27,25 @@ public class RegistrarCoros extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_coros);
 
-
+        //Se igualan las variables a sus campos de la interfaz por medio de su id
         etnombre = findViewById(R.id.etNombreCoro);
         etautor = findViewById(R.id.etAutorCoro);
         etletra = findViewById(R.id.etLetraCoro);
-
         btnR = findViewById(R.id.btnGuardarCoros);
 
+        //Se crea el evento OnClickListener del botón
         btnR.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+
+        //Se declaran nuevas variables para registrar
         final String titulo = etnombre.getText().toString();
         final String autor = etautor.getText().toString();
         final String letra = etletra.getText().toString();
+
+        // Se valida que si los campos están vacíos que indique que lo están
         if (etnombre.getText().toString().length() == 0){
             etnombre.setError("Campo Obligatorio");
         }else if (etautor.getText().toString().length() == 0){
@@ -49,6 +54,7 @@ public class RegistrarCoros extends AppCompatActivity implements View.OnClickLis
             etletra.setError("Campo Obligatorio");
         }else {
 
+            // Si los campos están llenos entonces procede con el metodo de guardar
             Response.Listener<String> responseListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -57,11 +63,15 @@ public class RegistrarCoros extends AppCompatActivity implements View.OnClickLis
                         boolean success = jsonResponse.getBoolean("success");
 
                         if (success ){
+
+                            //Si las condiciones se cumplen entonces guarda el registro y lanza un Toast
                             Toast.makeText(RegistrarCoros.this, "Registro realizado exitosamente", Toast.LENGTH_SHORT).show();
                             etnombre.setText(null);
                             etautor.setText(null);
                             etletra.setText(null);
                         }else {
+
+                            //Sino se cumplen las condiciones lanza un error que no se pudo guardar
                             AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarCoros.this);
                             builder.setMessage("Error al registrar")
                                     .setNegativeButton("Retry", null)
