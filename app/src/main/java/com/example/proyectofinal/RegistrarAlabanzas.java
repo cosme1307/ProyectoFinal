@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClickListener {
 
+    //Se declaran las variales que se vas a usar
     EditText etnombre, etautor, etletra;
     Button btnR;
 
@@ -26,19 +27,26 @@ public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_alabanzas);
 
+        //Se igualan las variables a sus campos de la interfaz por medio de su id
         etnombre = findViewById(R.id.etNombreAlabanza);
         etautor = findViewById(R.id.etAutorAlabanza);
         etletra = findViewById(R.id.etLetraAlabanza);
         btnR = findViewById(R.id.btnGuardarAlabanzas);
+
+        //Se crea el evento OnClickListener del botón
         btnR.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+
+        //Se declaran nuevas variables para registrar
         final String titulo = etnombre.getText().toString();
         final String autor = etautor.getText().toString();
         final String letra = etletra.getText().toString();
 
+
+        // Se valida que si los campos están vacíos que indique que lo están
         if (etnombre.getText().toString().length() == 0){
             etnombre.setError("Campo Obligatorio");
         }else if (etautor.getText().toString().length() == 0){
@@ -47,6 +55,7 @@ public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClic
             etletra.setError("Campo Obligatorio");
         }else {
 
+            // Si los campos están llenos entonces procede con el metodo de guardar
             Response.Listener<String> responseListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
