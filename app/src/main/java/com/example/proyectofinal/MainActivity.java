@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //Metodo para que se integre el menú a la interfaz
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_principal, menu);
@@ -25,12 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //Si toca una opción del menú iniciará la activity que le corresponde
         if (id == R.id.itemRegisAlabanzas) {
             Intent intent = new Intent(this, RegistrarAlabanzas.class);
             startActivity(intent);
@@ -43,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    //Metodo que inicia la activity Coros
     public void coros (View view){
         Intent intent = new Intent(this, Coros.class);
         startActivity(intent);
     }
 
+    //Metodo que inicia la activity Alabanzas
     public void alabanzas (View view){
         Intent intent = new Intent(this, Alabanzas.class);
         startActivity(intent);
