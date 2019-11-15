@@ -16,6 +16,7 @@
         android:layout_marginRight="40dp"
         android:onClick="coros"
         android:text="Coros"
+        android:background="#FF7E54"
         android:textColor="#FFF"
         android:textStyle="bold" />
 
@@ -28,6 +29,7 @@
         android:layout_marginRight="40dp"
         android:onClick="alabanzas"
         android:text="Alabanzas"
+        android:background="#FF7E54"
         android:textColor="#FFF"
         android:textStyle="bold" />
 
