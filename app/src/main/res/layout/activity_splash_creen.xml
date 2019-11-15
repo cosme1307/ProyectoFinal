@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F57C00"
-    android:gravity="center"
-    tools:context=".SplashCreen">
+    android:background="#FFD4D4"
+    android:orientation="vertical"
+    tools:context=".splashscreen">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SplashScreen"
-        android:textSize="50dp"
+        android:text="ITCA-FEPADE"
+        android:textSize="40dp"
+        android:textColor="#000"
         android:textAlignment="center"
         />
 </LinearLayout>
