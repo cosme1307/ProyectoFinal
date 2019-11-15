@@ -16,4 +16,52 @@
         android:textColor="#000"
         android:textAlignment="center"
         />
+<LinearLayout
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Creado por:"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:textColor="#000"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="COSME JOSÉ"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CARLOS ELIAS"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JONATHAN ALEXANDER"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EDUARDO JOSUE"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20dp"
+        />
+
+</LinearLayout>
 </LinearLayout>
