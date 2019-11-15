@@ -82,6 +82,8 @@ public class RegistrarCoros extends AppCompatActivity implements View.OnClickLis
                     }
                 }
             };
+
+            //Se agrega el nuego registro a la base de datos
             RegisterRequestCoro registrarRequestCoro = new RegisterRequestCoro(titulo, autor, letra, responseListener);
             RequestQueue queue = Volley.newRequestQueue(RegistrarCoros.this);
             queue.add(registrarRequestCoro);

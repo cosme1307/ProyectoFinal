@@ -81,6 +81,8 @@ public class RegistrarAlabanzas extends AppCompatActivity implements View.OnClic
                     }
                 }
             };
+
+            //Se agrega el nuego registro a la base de datos
             RegisterRequestAlabanza registerRequestAlabanza = new RegisterRequestAlabanza(titulo, autor, letra, responseListener);
             RequestQueue queue = Volley.newRequestQueue(RegistrarAlabanzas.this);
             queue.add(registerRequestAlabanza);
