@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 
 public class listar_registro extends AppCompatActivity {
+    private ListView lvdatos;
+    private AsyncHttpClient cliente = new AsyncHttpClient();
 
 
     @Override
@@ -27,6 +29,9 @@ public class listar_registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_registro);
 
+
     }
+
+
 
 }
