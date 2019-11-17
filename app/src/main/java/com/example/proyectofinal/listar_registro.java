@@ -51,4 +51,38 @@ public class listar_registro extends AppCompatActivity {
         });
     }
 
+
+
+
+    private  void listarAlabanzas(String respuesta){
+        final ArrayList<Alabanzas> lista = new ArrayList<Alabanzas>();
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i=0; i<jsonArreglo.length(); i++){
+                Alabanzas a = new Alabanzas();
+                a.setId(jsonArreglo.getJSONObject(i).getInt("id"));
+                a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
+                a.setAutor(jsonArreglo.getJSONObject(i).getString("autor"));
+                a.setLetra(jsonArreglo.getJSONObject(i).getString("letra"));
+
+                lista.add(a);
+
+            }
+
+            ArrayAdapter<Alabanzas> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, lista);
+            lvdatos.setAdapter(a);
+
+            lvdatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            });
+
+
+        }catch(Exception el){
+            el.printStackTrace();
+        }
+
+
+    }
+
 }
