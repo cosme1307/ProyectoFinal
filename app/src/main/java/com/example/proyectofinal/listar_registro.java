@@ -74,7 +74,7 @@ public class listar_registro extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                     Alabanzas a = lista.get(position);
-                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminar.php?id_a="+a.getId();
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminar.php?id="+a.getId();
 
                     cliente.post(url, new AsyncHttpResponseHandler() {
                         @Override
