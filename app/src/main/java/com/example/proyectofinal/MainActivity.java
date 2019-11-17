@@ -116,4 +116,55 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    private  void listarAlabanzas(String respuesta){
+        final ArrayList<Alabanzas> lista = new ArrayList<Alabanzas>();
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i=0; i<jsonArreglo.length(); i++){
+                Alabanzas a = new Alabanzas();
+                a.setId(jsonArreglo.getJSONObject(i).getInt("id_a"));
+                a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
+                a.setAutor(jsonArreglo.getJSONObject(i).getString("autor"));
+                a.setLetra(jsonArreglo.getJSONObject(i).getString("letra"));
+
+                lista.add(a);
+
+            }
+
+            ArrayAdapter<Alabanzas> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, lista);
+            lvdatos.setAdapter(a);
+
+            lvdatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Alabanzas a = lista.get(position);
+                    String url = "https://appmovilgamez.000webhostapp.com/eliminar.php?id_a="+a.getId();
+
+                    cliente.post(url, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            if (statusCode == 200){
+                                Toast.makeText(MainActivity.this, "Alabanza liminada Correctamente", Toast.LENGTH_SHORT).show();
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                obtenerAlabanzas();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                        }
+                    });
+
+                    return true;
+                }
+            });
+
+
 }
