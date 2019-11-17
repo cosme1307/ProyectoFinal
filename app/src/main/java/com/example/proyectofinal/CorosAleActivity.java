@@ -96,6 +96,9 @@ public class CorosAleActivity extends AppCompatActivity {
     //*******************
 
     private void obtenerCoros(){
+        String url = "https://proyectofinalsis22.000webhostapp.com/obtenerCoroAle.php";
+        clientecal.post(url, new AsyncHttpResponseHandler() {
 
+        });
     }
 }
