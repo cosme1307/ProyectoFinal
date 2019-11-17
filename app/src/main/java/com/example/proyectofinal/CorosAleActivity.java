@@ -143,6 +143,30 @@ public class CorosAleActivity extends AppCompatActivity {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+                    CorosAle a = listar.get(position);
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminarale.php?id_cale="+a.getId();
+
+                    clientecal.post(url, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            if (statusCode == 200){
+                                Toast.makeText(CorosAleActivity.this, "Coro liminado Correctamente", Toast.LENGTH_SHORT).show();
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                obtenerCoros();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                        }
+                    });
+
+                    return true;
                 }
             });
 
