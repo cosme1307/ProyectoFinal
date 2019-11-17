@@ -101,6 +101,24 @@ public class listar_registro extends AppCompatActivity {
             });
 
 
+            lvdatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Alabanzas a = lista.get(position);
+                    StringBuffer b = new StringBuffer();
+                    b.append("ID: " + a.getId() + "\n");
+                    b.append("TITULO: " + a.getTitulo() + "\n");
+                    b.append("AUTOR: " + a.getTitulo() + "\n");
+                    b.append("LETRA: " + a.getLetra() + "\n");
+
+                    AlertDialog.Builder al = new AlertDialog.Builder(listar_registro.this);
+                    al.setCancelable(true);
+                    al.setTitle("Detalle");
+                    al.setMessage(a.tostring());
+                    al.setIcon(R.drawable.xx);
+                    al.show();
+                }
+            });
         }catch(Exception el){
             el.printStackTrace();
         }
