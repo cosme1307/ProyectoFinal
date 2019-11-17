@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnRegistrar = findViewById(R.id.btnRegistrar);
 
-        lvdatos = findViewById(R.id.lvDatosR);
+        lvdatos = findViewById(R.id.lvDatosRa);
 
         cliente = new AsyncHttpClient();
         almacenarAlabanzas();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private  void agregarAlabanza(Alabanzas a){
-        String url = "https://appmovilgamez.000webhostapp.com/agregar.php?";
+        String url = "https://proyectofinalsis22.000webhostapp.com/agregar.php?";
         String parametros = "titulo="+a.getTitulo()+"&autor="+a.getAutor()+"&letra="+a.getLetra();
         cliente.post(url + parametros, new AsyncHttpResponseHandler() {
             @Override
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void obtenerAlabanzas(){
-        String url = "https://appmovilgamez.000webhostapp.com/obtenerDatos.php";
+        String url = "https://proyectofinalsis22.000webhostapp.com/obtenerDatos.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                     Alabanzas a = lista.get(position);
-                    String url = "https://appmovilgamez.000webhostapp.com/eliminar.php?id_a="+a.getId();
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminar.php?id_a="+a.getId();
 
                     cliente.post(url, new AsyncHttpResponseHandler() {
                         @Override
@@ -192,11 +192,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    public void coros(View view) {
-        Intent intent = new Intent(this, CorosAdoActivity.class);
-        startActivity(intent);
-    }
 
     public void registro(View view) {
         Intent intent = new Intent(this, listar_registro.class);
