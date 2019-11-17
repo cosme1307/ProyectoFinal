@@ -171,6 +171,9 @@ public class CorosAleActivity extends AppCompatActivity {
             });
 
 
+            lvdatoscal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            });
 
 
         }catch(Exception el){
