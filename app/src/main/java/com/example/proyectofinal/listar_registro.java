@@ -51,9 +51,6 @@ public class listar_registro extends AppCompatActivity {
         });
     }
 
-
-
-
     private  void listarAlabanzas(String respuesta){
         final ArrayList<Alabanzas> lista = new ArrayList<Alabanzas>();
         try{
@@ -102,7 +99,6 @@ public class listar_registro extends AppCompatActivity {
                     return true;
                 }
             });
-
 
 
         }catch(Exception el){
