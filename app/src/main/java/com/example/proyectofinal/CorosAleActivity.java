@@ -136,6 +136,18 @@ public class CorosAleActivity extends AppCompatActivity {
 
             }
 
+            ArrayAdapter<CorosAle> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listar);
+            lvdatoscal.setAdapter(a);
+
+            lvdatoscal.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+            });
+
+
+
 
         }catch(Exception el){
             el.printStackTrace();
