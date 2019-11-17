@@ -29,9 +29,17 @@ public class listar_registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_registro);
 
+        lvdatos = findViewById(R.id.lvDatosRa);
 
+        cliente = new AsyncHttpClient();
+        obtenerAlabanzas();
     }
 
+    private void obtenerAlabanzas(){
+        String url = "https://proyectofinalsis22.000webhostapp.com/obtenerDatos.php";
+        cliente.post(url, new AsyncHttpResponseHandler() {
 
+        });
+    }
 
 }
