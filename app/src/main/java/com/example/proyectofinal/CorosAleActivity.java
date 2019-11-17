@@ -92,4 +92,10 @@ public class CorosAleActivity extends AppCompatActivity {
             }
         });
     }
+
+    //*******************
+
+    private void obtenerCoros(){
+
+    }
 }
