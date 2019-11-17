@@ -105,6 +105,10 @@ public class CorosAleActivity extends AppCompatActivity {
                 }
             }
 
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
         });
     }
 }
