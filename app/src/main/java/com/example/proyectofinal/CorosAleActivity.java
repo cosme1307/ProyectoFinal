@@ -181,6 +181,12 @@ public class CorosAleActivity extends AppCompatActivity {
                     b.append("AUTOR: " + a.getTitulo() + "\n");
                     b.append("LETRA: " + a.getLetra() + "\n");
 
+                    AlertDialog.Builder al = new AlertDialog.Builder(CorosAleActivity.this);
+                    al.setCancelable(true);
+                    al.setTitle("Detalle");
+                    al.setMessage(a.tostring());
+                    al.setIcon(R.drawable.xx);
+                    al.show();
                 }
             });
 
