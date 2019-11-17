@@ -75,6 +75,17 @@ public class CorosAleActivity extends AppCompatActivity {
     private  void agregarCoros(CorosAle a){
         String url = "https://proyectofinalsis22.000webhostapp.com/agregarale.php?";
         String parametros = "titulo="+a.getTitulo()+"&autor="+a.getAutor()+"&letra="+a.getLetra();
+        clientecal.post(url + parametros, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 200){
+                    Toast.makeText(CorosAleActivity.this, "Coro agregada correctamente", Toast.LENGTH_SHORT).show();
+                    ettitulocal.setText("");
+                    etautorcal.setText("");
+                    etletracal.setText("");
+                }
+            }
 
+        });
     }
 }
