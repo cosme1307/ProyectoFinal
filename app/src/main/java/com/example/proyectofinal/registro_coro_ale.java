@@ -78,6 +78,25 @@ public class registro_coro_ale extends AppCompatActivity {
                     CorosAle a = listar.get(position);
                     String url = "https://appmovilgamez.000webhostapp.com/eliminarale.php?id_cale="+a.getId();
 
+                    clientecal.post(url, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            if (statusCode == 200){
+                                Toast.makeText(registro_coro_ale.this, "Coro liminado Correctamente", Toast.LENGTH_SHORT).show();
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                obtenerCoros();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                        }
+                    });
 
                     return true;
                 }
