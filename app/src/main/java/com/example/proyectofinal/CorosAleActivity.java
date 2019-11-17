@@ -7,8 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import cz.msebera.android.httpclient.Header;
 
 public class CorosAleActivity extends AppCompatActivity {
     private EditText ettitulocal, etautorcal, etletracal;
@@ -63,5 +67,14 @@ public class CorosAleActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+    //*****************
+
+    private  void agregarCoros(CorosAle a){
+        String url = "https://proyectofinalsis22.000webhostapp.com/agregarale.php?";
+        String parametros = "titulo="+a.getTitulo()+"&autor="+a.getAutor()+"&letra="+a.getLetra();
+
     }
 }
