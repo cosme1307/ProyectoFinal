@@ -1,9 +1,12 @@
 package com.example.proyectofinal;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -11,6 +14,10 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -111,4 +118,31 @@ public class CorosAleActivity extends AppCompatActivity {
             }
         });
     }
+
+    //****************
+
+    private  void listarCoros(String respuesta){
+        final ArrayList<CorosAle> listar = new ArrayList<CorosAle>();
+        try{
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i=0; i<jsonArreglo.length(); i++){
+                CorosAle a = new CorosAle();
+                a.setId(jsonArreglo.getJSONObject(i).getInt("id_cale"));
+                a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
+                a.setAutor(jsonArreglo.getJSONObject(i).getString("autor"));
+                a.setLetra(jsonArreglo.getJSONObject(i).getString("letra"));
+
+                listar.add(a);
+
+            }
+
+
+        }catch(Exception el){
+            el.printStackTrace();
+        }
+
+    }
+
+
+
 }
