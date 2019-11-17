@@ -21,6 +21,18 @@ public class CorosAleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coros_ale);
 
+        ettitulocal = findViewById(R.id.ettituloal);
+        etautorcal = findViewById(R.id.etautoral);
+        etletracal = findViewById(R.id.etletraal);
 
+        btnRegistrarcal = findViewById(R.id.btnRegistraral);
+
+        lvdatoscal = findViewById(R.id.lvDatosale);
+
+        clientecal = new AsyncHttpClient();
+
+        almacenarCoros();
+
+        obtenerCoros();
     }
 }
