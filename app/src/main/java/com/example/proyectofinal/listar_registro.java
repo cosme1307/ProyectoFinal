@@ -75,7 +75,34 @@ public class listar_registro extends AppCompatActivity {
             lvdatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Alabanzas a = lista.get(position);
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminar.php?id_a="+a.getId();
+
+                    cliente.post(url, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            if (statusCode == 200){
+                                Toast.makeText(listar_registro.this, "Alabanza liminada Correctamente", Toast.LENGTH_SHORT).show();
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                obtenerAlabanzas();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                        }
+                    });
+
+                    return true;
+                }
             });
+
 
 
         }catch(Exception el){
