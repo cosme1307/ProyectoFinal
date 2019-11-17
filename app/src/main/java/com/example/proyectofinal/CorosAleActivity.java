@@ -189,14 +189,10 @@ public class CorosAleActivity extends AppCompatActivity {
                     al.show();
                 }
             });
-
-
         }catch(Exception el){
             el.printStackTrace();
         }
 
     }
-
-
 
 }
