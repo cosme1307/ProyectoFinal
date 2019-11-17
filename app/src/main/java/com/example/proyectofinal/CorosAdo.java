@@ -1,15 +1,15 @@
 package com.example.proyectofinal;
 
-public class Alabanzas {
+public class CorosAdo {
     private int id;
     private String titulo;
     private String autor;
     private String letra;
 
-    public Alabanzas() {
+    public CorosAdo() {
     }
 
-    public Alabanzas(int id, String titulo, String autor, String letra) {
+    public CorosAdo(int id, String titulo, String autor, String letra) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
@@ -50,7 +50,7 @@ public class Alabanzas {
 
     @Override
     public String toString() {
-        return id +  " ~ " + titulo;
+        return  titulo;
     }
 
     public  String tostring(){
