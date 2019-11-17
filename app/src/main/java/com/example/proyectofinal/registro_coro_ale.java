@@ -59,7 +59,7 @@ public class registro_coro_ale extends AppCompatActivity {
             JSONArray jsonArreglo = new JSONArray(respuesta);
             for (int i=0; i<jsonArreglo.length(); i++){
                 CorosAle a = new CorosAle();
-                a.setId(jsonArreglo.getJSONObject(i).getInt("id_cale"));
+                a.setId(jsonArreglo.getJSONObject(i).getInt("id"));
                 a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
                 a.setAutor(jsonArreglo.getJSONObject(i).getString("autor"));
                 a.setLetra(jsonArreglo.getJSONObject(i).getString("letra"));
@@ -76,7 +76,7 @@ public class registro_coro_ale extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                     CorosAle a = listar.get(position);
-                    String url = "https://appmovilgamez.000webhostapp.com/eliminarale.php?id_cale="+a.getId();
+                    String url = "https://appmovilgamez.000webhostapp.com/eliminarale.php?id="+a.getId();
 
                     clientecal.post(url, new AsyncHttpResponseHandler() {
                         @Override
@@ -128,5 +128,5 @@ public class registro_coro_ale extends AppCompatActivity {
 
     }
 
-    //***************
+
 }
