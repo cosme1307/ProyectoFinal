@@ -39,7 +39,29 @@ public class CorosAleActivity extends AppCompatActivity {
 
     private void almacenarCoros() {
         btnRegistrarcal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ettitulocal.getText().toString().length()== 0 )  {
+                    ettitulocal.setError("Campo Obligatorio");
+                }else if (etautorcal.getText().toString().length()== 0){
+                    etautorcal.setError("Campo Obligatorio");
+                }else  if (etletracal.getText().toString().length()== 0){
+                    etletracal.setError("Campo Obligatorio");
+                }else{
+                    CorosAle a = new CorosAle();
+                    a.setTitulo(ettitulocal.getText().toString().replaceAll(" ", "%20"));
+                    a.setAutor(etautorcal.getText().toString().replaceAll(" ", "%20"));
+                    a.setLetra(etletracal.getText().toString().replaceAll(" ", "%20"));
 
+                    agregarCoros(a);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    obtenerCoros();
+                }
+            }
         });
     }
 }
