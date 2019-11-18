@@ -99,7 +99,22 @@ public class registro_coro_ale extends AppCompatActivity {
             final ArrayAdapter<CorosAle> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listar);
             lvdatoscal.setAdapter(a);
 
+            buscar.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    a.getFilter().filter(s);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
 
             lvdatoscal.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
