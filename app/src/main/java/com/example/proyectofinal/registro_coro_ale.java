@@ -3,6 +3,7 @@ package com.example.proyectofinal;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,7 +35,7 @@ public class registro_coro_ale extends AppCompatActivity {
     }
 
     private void obtenerCoros(){
-        String url = "https://appmovilgamez.000webhostapp.com/obtenerCoroAle.php";
+        String url = "https://proyectofinalsis22.000webhostapp.com/obtenerCoroAle.php";
         clientecal.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -49,9 +50,6 @@ public class registro_coro_ale extends AppCompatActivity {
             }
         });
     }
-
-    //*****************
-
 
     private  void listarCoros(String respuesta){
         final ArrayList<CorosAle> listar = new ArrayList<CorosAle>();
@@ -76,7 +74,7 @@ public class registro_coro_ale extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                     CorosAle a = listar.get(position);
-                    String url = "https://appmovilgamez.000webhostapp.com/eliminarale.php?id="+a.getId();
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminarale.php?id="+a.getId();
 
                     clientecal.post(url, new AsyncHttpResponseHandler() {
                         @Override
@@ -127,6 +125,8 @@ public class registro_coro_ale extends AppCompatActivity {
 
 
     }
-
-
+    public void coro_ale(View view) {
+        Intent intent = new Intent(this, registro_coro_ale.class);
+        startActivity(intent);
+    }
 }

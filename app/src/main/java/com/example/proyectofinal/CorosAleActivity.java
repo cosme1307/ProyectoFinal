@@ -3,6 +3,7 @@ package com.example.proyectofinal;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -127,7 +128,7 @@ public class CorosAleActivity extends AppCompatActivity {
             JSONArray jsonArreglo = new JSONArray(respuesta);
             for (int i=0; i<jsonArreglo.length(); i++){
                 CorosAle a = new CorosAle();
-                a.setId(jsonArreglo.getJSONObject(i).getInt("id_cale"));
+                a.setId(jsonArreglo.getJSONObject(i).getInt("id"));
                 a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
                 a.setAutor(jsonArreglo.getJSONObject(i).getString("autor"));
                 a.setLetra(jsonArreglo.getJSONObject(i).getString("letra"));
@@ -144,7 +145,7 @@ public class CorosAleActivity extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                     CorosAle a = listar.get(position);
-                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminarale.php?id_cale="+a.getId();
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminarale.php?id="+a.getId();
 
                     clientecal.post(url, new AsyncHttpResponseHandler() {
                         @Override
@@ -194,5 +195,8 @@ public class CorosAleActivity extends AppCompatActivity {
         }
 
     }
-
+    public void coro_ale(View view) {
+        Intent intent = new Intent(this, registro_coro_ale.class);
+        startActivity(intent);
+    }
 }

@@ -191,7 +191,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    public void coros(View view) {
+        Intent intent = new Intent(this, CorosAleActivity.class);
+        startActivity(intent);
+    }
 
     public void registro(View view) {
         Intent intent = new Intent(this, listar_registro.class);
