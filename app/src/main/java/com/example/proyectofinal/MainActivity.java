@@ -235,7 +235,6 @@ public class MainActivity extends AppCompatActivity {
                     al.setCancelable(true);
                     al.setTitle("Detalle");
                     al.setMessage(a.tostring());
-                    al.setIcon(R.drawable.xx);
                     al.show();
                 }
             });
