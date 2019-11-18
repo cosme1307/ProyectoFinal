@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //Acerca de..
-        if (id == R.id.mAcerca){
+        if (id == R.id.mAcerca) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                     context);
             // Establecer el título
@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
             // Establecer mensaje de diálogo
             alertDialogBuilder
                     .setMessage("~ COSME JOSÉ \n" +
-                                "\n ~ CARLOS ELÍAS \n"+
-                                "\n ~ JONATHAN ALEXANDER \n"+
-                                "\n ~ EDUARDO JOSUE \n")
+                            "\n ~ CARLOS ELÍAS \n" +
+                            "\n ~ JONATHAN ALEXANDER \n" +
+                            "\n ~ EDUARDO JOSUE \n")
                     .setCancelable(false)
                     .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -104,13 +104,13 @@ public class MainActivity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ettitulo.getText().toString().length()== 0 )  {
+                if (ettitulo.getText().toString().length() == 0) {
                     ettitulo.setError("Campo Obligatorio");
-                }else if (etautor.getText().toString().length()== 0){
+                } else if (etautor.getText().toString().length() == 0) {
                     etautor.setError("Campo Obligatorio");
-                }else  if (etletra.getText().toString().length()== 0){
+                } else if (etletra.getText().toString().length() == 0) {
                     etletra.setError("Campo Obligatorio");
-                }else{
+                } else {
                     Alabanzas a = new Alabanzas();
                     a.setTitulo(ettitulo.getText().toString().replaceAll(" ", "%20"));
                     a.setAutor(etautor.getText().toString().replaceAll(" ", "%20"));
@@ -129,14 +129,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    private  void agregarAlabanza(Alabanzas a){
+    private void agregarAlabanza(Alabanzas a) {
         String url = "https://proyectofinalsis22.000webhostapp.com/agregar.php?";
-        String parametros = "titulo="+a.getTitulo()+"&autor="+a.getAutor()+"&letra="+a.getLetra();
+        String parametros = "titulo=" + a.getTitulo() + "&autor=" + a.getAutor() + "&letra=" + a.getLetra();
         cliente.post(url + parametros, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200){
+                if (statusCode == 200) {
                     Toast.makeText(MainActivity.this, "Alabanza agregada correctamente", Toast.LENGTH_SHORT).show();
                     ettitulo.setText("");
                     etautor.setText("");
@@ -152,12 +151,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void obtenerAlabanzas(){
+    private void obtenerAlabanzas() {
         String url = "https://proyectofinalsis22.000webhostapp.com/obtenerDatos.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200){
+                if (statusCode == 200) {
                     listarAlabanzas(new String(responseBody));
                 }
             }
@@ -170,12 +169,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    private  void listarAlabanzas(String respuesta){
+    private void listarAlabanzas(String respuesta) {
         final ArrayList<Alabanzas> lista = new ArrayList<Alabanzas>();
-        try{
+        try {
             JSONArray jsonArreglo = new JSONArray(respuesta);
-            for (int i=0; i<jsonArreglo.length(); i++){
+            for (int i = 0; i < jsonArreglo.length(); i++) {
                 Alabanzas a = new Alabanzas();
                 a.setId(jsonArreglo.getJSONObject(i).getInt("id_a"));
                 a.setTitulo(jsonArreglo.getJSONObject(i).getString("titulo"));
@@ -194,12 +192,12 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                     Alabanzas a = lista.get(position);
-                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminar.php?id="+a.getId();
+                    String url = "https://proyectofinalsis22.000webhostapp.com/eliminar.php?id=" + a.getId();
 
                     cliente.post(url, new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                            if (statusCode == 200){
+                            if (statusCode == 200) {
                                 Toast.makeText(MainActivity.this, "Alabanza liminada Correctamente", Toast.LENGTH_SHORT).show();
                                 try {
                                     Thread.sleep(1000);
@@ -238,12 +236,13 @@ public class MainActivity extends AppCompatActivity {
                     al.show();
                 }
             });
-        }catch(Exception el){
+        } catch (Exception el) {
             el.printStackTrace();
         }
 
 
     }
+
     public void coros(View view) {
         Intent intent = new Intent(this, CorosAleActivity.class);
         startActivity(intent);
@@ -253,5 +252,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, listar_registro.class);
         startActivity(intent);
     }
+
+
 
 }
