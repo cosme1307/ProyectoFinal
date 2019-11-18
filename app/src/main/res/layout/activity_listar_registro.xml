@@ -8,6 +8,13 @@
     android:orientation="vertical"
     android:layout_margin="25dp">
 
+    <EditText
+        android:id="@+id/buscar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/etestilo"
+        android:hint="Buscar" />
+
 
     <ScrollView
         android:layout_width="match_parent"

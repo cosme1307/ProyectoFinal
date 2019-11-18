@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ public class listar_registro extends AppCompatActivity {
     private ListView lvdatos;
     private AsyncHttpClient cliente = new AsyncHttpClient();
     AlertDialog.Builder dialogo;
+    private EditText buscar;
 
 
     @Override
@@ -55,6 +59,7 @@ public class listar_registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_registro);
 
+        buscar = findViewById(R.id.buscar);
         lvdatos = findViewById(R.id.lvDatosRa);
 
         cliente = new AsyncHttpClient();
@@ -92,8 +97,25 @@ public class listar_registro extends AppCompatActivity {
 
             }
 
-            ArrayAdapter<Alabanzas> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, lista);
+            final ArrayAdapter<Alabanzas> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, lista);
             lvdatos.setAdapter(a);
+
+            buscar.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    a.getFilter().filter(s);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
 
             lvdatos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
