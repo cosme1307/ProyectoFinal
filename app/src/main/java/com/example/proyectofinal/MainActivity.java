@@ -3,8 +3,12 @@ package com.example.proyectofinal;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView lvdatos;
     private AsyncHttpClient cliente = new AsyncHttpClient();
 
+    final Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,54 @@ public class MainActivity extends AppCompatActivity {
         almacenarAlabanzas();
         obtenerAlabanzas();
     }
+
+    //****MENÚ********
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //Acerca de..
+        if (id == R.id.mAcerca){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    context);
+            // Establecer el título
+            alertDialogBuilder.setTitle("Acerca de");
+            // Establecer mensaje de diálogo
+            alertDialogBuilder
+                    .setMessage("~ COSME JOSÉ \n" +
+                                "\n ~ CARLOS ELÍAS \n"+
+                                "\n ~ JONATHAN ALEXANDER \n"+
+                                "\n ~ EDUARDO JOSUE \n")
+                    .setCancelable(false)
+                    .setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // Si presiona que Aceptar se cerrara el mensaje de dialogo
+                            dialog.cancel();
+                        }
+                    });
+            // Crear mensaje AlertDialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            // Mostrar alert
+            alertDialog.show();
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //****MENÚ********
+
 
     private void almacenarAlabanzas() {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
