@@ -54,9 +54,9 @@ public class CorosAle {
     }
 
     public  String tostring(){
-        return  "ID: " + id + "\n"+
-                "TÍTULO: " + titulo + "\n"+
-                "AUTOR: " + autor + "\n\n"+
-                "LETRA: " +  "\n" + letra ;
+        return  "ID: " + getId() + "\n"+
+                "TÍTULO: " + getTitulo() + "\n"+
+                "AUTOR: " + getAutor() + "\n\n"+
+                "LETRA: " +  "\n" + getLetra() ;
     }
 }

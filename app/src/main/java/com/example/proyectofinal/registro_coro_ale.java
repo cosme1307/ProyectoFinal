@@ -151,12 +151,7 @@ public class registro_coro_ale extends AppCompatActivity {
             lvdatoscal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    CorosAle a = listar.get(position);
-                    StringBuffer b = new StringBuffer();
-                    b.append("ID: " + a.getId() + "\n");
-                    b.append("TITULO: " + a.getTitulo() + "\n");
-                    b.append("AUTOR: " + a.getTitulo() + "\n");
-                    b.append("LETRA: " + a.getLetra() + "\n");
+                    CorosAle a = (CorosAle) parent.getItemAtPosition(position);
 
                     AlertDialog.Builder al = new AlertDialog.Builder(registro_coro_ale.this);
                     al.setCancelable(true);
