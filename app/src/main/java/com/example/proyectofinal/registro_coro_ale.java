@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +29,7 @@ public class registro_coro_ale extends AppCompatActivity {
     private ListView lvdatoscal;
     private AsyncHttpClient clientecal = new AsyncHttpClient();
     AlertDialog.Builder dialogo;
+    private EditText buscar;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -52,6 +56,8 @@ public class registro_coro_ale extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_coro_ale);
+
+        buscar = findViewById(R.id.buscarca);
 
         lvdatoscal = findViewById(R.id.lvDatosale);
         clientecal = new AsyncHttpClient();
@@ -90,8 +96,10 @@ public class registro_coro_ale extends AppCompatActivity {
 
             }
 
-            ArrayAdapter<CorosAle> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listar);
+            final ArrayAdapter<CorosAle> a = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listar);
             lvdatoscal.setAdapter(a);
+
+
 
             lvdatoscal.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                 @Override
